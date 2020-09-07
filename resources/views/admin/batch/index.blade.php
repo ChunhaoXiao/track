@@ -10,11 +10,11 @@
       <a href="{{ route('admin.batch.create')}}" class="btn btn-info">添加批次</a>
     </div>
 
-    <form class="form-inline" action="">
+    <!-- <form class="form-inline" action="">
      <input type="text" class="form-control mb-2 mr-sm-2"  placeholder="产品名称" name="name" value="{{request()->name??''}}">
      
      <button class="btn btn-secondary mb-2">搜索</button>
-    </form>
+    </form> -->
     
     
 </div>
@@ -34,7 +34,7 @@
                     <td>{{ $v->batch_number }}</td>
                     <td class="text-center">
                       <a href="{{route('admin.batch.edit', $v)}}" class="far fa-edit text-secondary"></a>
-                      <a href="#" class="far fa-trash-alt text-secondary ml-3"></a>
+                      <a href="javascript:;" data-url="{{route('admin.batch.destroy', $v)}}" class="far fa-trash-alt text-secondary ml-3"></a>
                     </td>
                 </tr>
             @endforeach

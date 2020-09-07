@@ -21,6 +21,7 @@ class CreateSecurityCodesTable extends Migration
             $table->integer('product_id');
             $table->integer('company_id');
             $table->timestamps();
+            
         });
     }
 

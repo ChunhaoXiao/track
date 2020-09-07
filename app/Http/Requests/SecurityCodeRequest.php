@@ -26,7 +26,7 @@ class SecurityCodeRequest extends FormRequest
         return [
             'code' => ['required', Rule::unique('security_codes')->where(function($query){
                 return $query->where([['batch_id', $this->batch_id],['company_id', $this->company_id]]);
-            })],
+            })->ignore($this->securitycode)],
             'batch_id' => 'required|exists:batches,id',
             'product_id' => 'required|exists:products,id',
             'company_id' => 'required|exists:companies,id',

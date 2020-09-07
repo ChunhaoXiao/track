@@ -21,6 +21,7 @@ class IndexController extends Controller
         }
         //触发事件逻辑
         event(new CodeFound($result));
+      
         return view('home.real', ['data' => $result]);
     }
 }

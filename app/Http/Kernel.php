@@ -64,5 +64,6 @@ class Kernel extends HttpKernel
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'setting.cache' => \App\Http\Middleware\WriteConfigToCache::class,
+        'can.query' => \App\Http\Middleware\CanQuery::class,
     ];
 }

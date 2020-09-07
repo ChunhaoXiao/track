@@ -84,8 +84,9 @@ class BatchController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Batch $batch)
     {
-        //
+        $batch->delete();
+        return response()->json(['status' => 0]);
     }
 }

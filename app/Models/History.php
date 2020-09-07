@@ -11,6 +11,6 @@ class History extends Model
     ];
 
     public function code() {
-        return $this->belongsTo(SecurityCode::class, 'code_id');
+        return $this->belongsTo(SecurityCode::class, 'code_id')->withDefault();
     }
 }

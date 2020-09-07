@@ -14,7 +14,7 @@ return [
     |
     */
 
-    'title' => 'AdminLTE 3',
+    'title' => '后台管理系统',
     'title_prefix' => '',
     'title_postfix' => '',
 
@@ -45,12 +45,12 @@ return [
     |
     */
 
-    'logo' => '<b>Admin</b>LTE',
+    'logo' => '<b>后台管理</b>',
     'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xs',
-    'logo_img_alt' => 'AdminLTE',
+    'logo_img_alt' => '后台管理',
 
     /*
     |--------------------------------------------------------------------------
@@ -66,7 +66,7 @@ return [
 
     'usermenu_enabled' => true,
     'usermenu_header' => false,
-    'usermenu_header_class' => 'bg-primary',
+    'usermenu_header_class' => 'bg-secondary',
     'usermenu_image' => false,
     'usermenu_desc' => false,
     'usermenu_profile_url' => false,
@@ -190,7 +190,7 @@ return [
 
     'dashboard_url' => 'home',
 
-    'logout_url' => 'logout',
+    'logout_url' => 'admin/logout',
 
     'login_url' => 'login',
 
@@ -244,21 +244,21 @@ return [
 
 
         [
-            'text'        => 'pages',
-            'url'         => 'admin/pages',
-            'icon'        => 'far fa-fw fa-file',
-            'label'       => 4,
-            'label_color' => 'success',
+            'text'        => '首页',
+            'url'         => 'admin',
+            'icon'        => 'fas fa-home',
+            // 'label'       => 4,
+            // 'label_color' => 'success',
         ],
         [
             'text' => '公司管理',
             'url'  => 'admin/company',
-            'icon' => 'fas fa-fw fa-user',
+            'icon' => 'far fa-building',
         ],
         [
             'text' => '产品管理',
             'url'  => 'admin/product',
-            'icon' => 'fas fa-fw fa-user',
+            'icon' => 'fab fa-product-hunt',
         ],
         // [
         //     'header' => '防伪管理',
@@ -266,24 +266,24 @@ return [
         [
             'text' => '防伪批次',
             'url'  => 'admin/batch',
-            'icon' => 'fas fa-fw fa-user',
+            'icon' => 'fas fa-layer-group',
         ],
         [
             'text' => '防伪管理',
             'url'  => 'admin/securitycode',
-            'icon' => 'fas fa-fw fa-user',
+            'icon' => 'fas fa-barcode',
         ],
         [
             'text' => '查询记录',
             'url'  => 'admin/history',
-            'icon' => 'fas fa-fw fa-user',
+            'icon' => 'fas fa-history',
         ],
 
         // ['header' => 'account_settings'],
         [
             'text' => '系统设置',
             'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-user',
+            'icon' => 'fas fa-cogs',
         ],
 
         /*
@@ -465,6 +465,21 @@ return [
                     'type' => 'js',
                     'asset' => true,
                     'location' => 'js/jquery.uploadfile.min.js'
+                ]
+            ]
+        ],
+        'Lightbox' => [
+            'active' => true,
+            'files' => [
+                [
+                    'type' => 'css',
+                    'asset' => true,
+                    'location' => 'css/lightbox.min.css'
+                ],
+                [
+                    'type' => 'js',
+                    'asset' => true,
+                    'location' => 'js/lightbox.min.js'
                 ]
             ]
         ],

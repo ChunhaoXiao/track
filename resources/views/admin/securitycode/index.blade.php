@@ -5,7 +5,23 @@
 @endsection
 
 @section('content')
-<p><a href="{{ route('admin.securitycode.create')}}" class="btn btn-info">添加防伪码</a></p>
+<div class="d-flex  justify-content-between pb-2">
+    <div>
+    <a href="{{ route('admin.securitycode.create')}}" class="btn btn-info">添加防伪码</a>
+    </div>
+    
+
+    <form class="form-inline" action="">
+     <input type="text" class="form-control mb-2 mr-sm-2"  placeholder="防伪码" name="security_code" value="{{request()->security_code??''}}">
+     <div class="mb-2 mr-sm-2">
+       <x-select name="product_id" :options="$products" emptytext="产品" :selected="request()->product_id"/>
+     </div>
+     
+     
+     <button class="btn btn-secondary mb-2">搜索</button>
+    </form>
+</div>
+
     <table class="table table-hover table-bordered">
         <thead>
             <th>防伪码</th>

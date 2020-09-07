@@ -17,12 +17,14 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 Route::middleware('setting.cache')->group(function() {
-    Route::get('/', 'IndexController@index');
-    Route::get('/show', 'IndexController@show')->name('result');
+    Route::get('/', 'IndexController@index')->name('index');
+    Route::get('/show', 'IndexController@show')->middleware('can.query')->name('result');
 });
 
-Route::prefix('admin')->name('admin.')->namespace('Admin')->group(function() {
-    Route::get('/', 'IndexController@index')->name('admin.index');
+Route::get('/admin/login', 'Admin\AuthController@showLoginForm')->name('admin.showlogin');
+Route::post('/admin/login', 'Admin\AuthController@login')->name('admin.login');
+Route::prefix('admin')->name('admin.')->middleware('auth:admin')->namespace('Admin')->group(function() {
+    Route::get('/', 'IndexController@index')->name('index');
     Route::resource('company', 'CompanyController');
     Route::resource('product', 'ProductController');
     Route::resource('batch', 'BatchController');
@@ -31,5 +33,8 @@ Route::prefix('admin')->name('admin.')->namespace('Admin')->group(function() {
     Route::get('settings', 'SettingController@create')->name('setting.create');
     Route::post('settings', 'SettingController@store')->name('setting.store');
     Route::get('/history', 'HistoryController@index')->name('history.index');
+    Route::post('/logout', 'AuthController@logout');
+    Route::get('/password', 'PasswordController@create')->name('password');
+    Route::put('/password', 'PasswordController@update')->name('password.update');
     
 });

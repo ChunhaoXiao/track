@@ -19,15 +19,15 @@ class SecurityCode extends Model
     ];
 
     public function batch() {
-        return $this->belongsTo(Batch::class, 'batch_id');
+        return $this->belongsTo(Batch::class, 'batch_id')->withDefault();
     }
 
     public function product() {
-        return $this->belongsTo(Product::class, 'product_id');
+        return $this->belongsTo(Product::class, 'product_id')->withDefault();
     }
 
     public function company() {
-        return $this->belongsTo(Company::class, 'company_id');
+        return $this->belongsTo(Company::class, 'company_id')->withDefault();
     }
 
     public function history() {
@@ -38,10 +38,24 @@ class SecurityCode extends Model
     //     $this->attributes['security_code'] = $this->batch->batch_number.$this->code;
     // }
 
+    public function scopeFilter($query, $data) {
+        $fields = ['security_code', 'product_id'];
+        foreach($data as $k => $v) {
+            if(strlen($v)) {
+                if(in_array($k, $fields)) {
+                    $query->where($k, $v);
+                }
+            }
+        }
+        return $query;
+    }
+
     protected static function booted()
     {
         static::saving(function ($model) {
             $model->security_code = $model->batch->batch_number.$model->code;           
         });
     }
+
+    
 }

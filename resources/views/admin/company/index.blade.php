@@ -25,7 +25,7 @@
                     <td>{{ $v->website }}</td>
                     <td>
                         <a href="{{route('admin.company.edit', $v)}}" class="far fa-edit text-secondary"></a>
-                        <a href="#" class="far fa-trash-alt text-secondary ml-3"></a>
+                        <a href="javascript:;" data-url="{{route('admin.company.destroy', $v)}}" class="far fa-trash-alt text-secondary ml-3"></a>
                     </td>
                 </tr>
             @endforeach

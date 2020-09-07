@@ -25,7 +25,7 @@
             @foreach($datas as $v)
                 <tr>
                     <td>{{$v->code->security_code}}</td>
-                    <td>{{$v->code->product->name}} ({{ $v->code->product->company->name??'' }})</td>
+                    <td>{{$v->code->product->name}} @if($v->code->product->company->name)({{ $v->code->product->company->name}})@endif</td>
                     
                     <td>{{ $v->created_at }}</td>
                     <td>{{ $v->ip }}</td>

@@ -43,14 +43,14 @@
                     <td class="d-flex">
 
                         @foreach(array_slice($v->pictures??[], 0, 3) as $item )
-                            <img class="mx-1 rounded" src="{{asset('storage/'.$item)}}" alt="" width="40" height="40">
+                            <a href="{{asset('storage/'.$item)}}" data-lightbox="box{{$v->id}}"><img class="mx-1 rounded" src="{{asset('storage/'.$item)}}" alt="" width="40" height="40"></a>
                         @endforeach
                     </td>
                     <td>{{ Str::limit($v->params, 100) }}</td>
                     <td>{{ $v->company->name??''}}</td>
                     <td>
                       <a href="{{route('admin.product.edit', $v)}}" class="far fa-edit text-secondary"></a>
-                      <a href="#" class="far fa-trash-alt text-secondary ml-3"></a>
+                      <a href="javascript:;" data-url="{{route('admin.product.destroy', $v)}}" class="far fa-trash-alt text-secondary ml-3"></a>
                     </td>
                 </tr>
             @endforeach

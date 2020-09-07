@@ -17,7 +17,7 @@ class SecurityCodeController extends Controller
      */
     public function index()
     {
-        $datas = SecurityCode::latest()->paginate();
+        $datas = SecurityCode::filter(request()->all()??[])->latest()->paginate();
         return view('admin.securitycode.index', ['datas' => $datas]);
     }
 
