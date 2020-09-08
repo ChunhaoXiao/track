@@ -56,4 +56,5 @@
             @endforeach
         </tbody>
     </table>
+    <p>{{$datas->withQueryString()->links()}}</p>
 @endsection

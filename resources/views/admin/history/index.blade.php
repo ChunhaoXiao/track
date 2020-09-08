@@ -6,9 +6,7 @@
 
 @section('content')
     <form class="form-inline" action="">
-        <input type="text" class="form-control mb-2 ml-auto"  placeholder="防伪码" name="name" value="{{request()->name??''}}">
-        <input type="text" class="form-control mb-2 ml-3"  placeholder="IP地址" name="brand" value="{{request()->brand??''}}">
-        
+        <input type="text" class="form-control mb-2 ml-auto"  placeholder="防伪码" name="code" value="{{request()->code??''}}">
         <button class="btn btn-secondary mb-2 ml-2">搜索</button>
     </form>
 
@@ -18,7 +16,6 @@
             <th>产品信息</th>
             <th>查询时间</th>
             <th>ip</th>
-        
             <th>操作</th>
         </thead>
         <tbody>
@@ -38,4 +35,5 @@
             @endforeach
         </tbody>
     </table>
+    <p>{{$datas->withQueryString()->links()}}</p>
 @endsection

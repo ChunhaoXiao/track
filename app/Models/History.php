@@ -13,4 +13,13 @@ class History extends Model
     public function code() {
         return $this->belongsTo(SecurityCode::class, 'code_id')->withDefault();
     }
+
+    public function scopeFilter($query, $code) {
+        if(empty($code)) {
+            return $query;
+        }
+        return $query->whereHas('code', function($query) use($code){
+            $query->where('security_code', $code);
+        });
+    } 
 }

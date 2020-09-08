@@ -12,9 +12,9 @@ class HistoryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $datas = History::with('code.product.company')->latest()->paginate(25);
+        $datas = History::filter($request->code??'')->with('code.product.company')->latest()->paginate(10);
         //dd($datas);
         return view('admin.history.index')->with('datas', $datas);
     }
