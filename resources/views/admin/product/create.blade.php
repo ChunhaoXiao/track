@@ -12,7 +12,8 @@
         <div class="form-group row">
             <label for="" class="col-form-label col-sm-1">产品图片</label>
             <div class="col-sm-10">
-                <x-jqueryupload id="album" name="pictures[]" :pictures="$data->pictures??[]"/>
+                <!-- <x-jqueryupload id="album" name="pictures[]" :pictures="$data->pictures??[]"/> -->
+                    <x-simpleuploader name="pictures" :pictures="$data->pictures??[]" id="album"/>
             </div>
         </div>
         <x-select label="所属公司" :options="$companies" name="company_id" :selected="$data->company_id??''"/>

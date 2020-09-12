@@ -11,13 +11,20 @@
         <x-textinput label="正品时显示文字" name="real_text" :value="$data->real_text??''"/>
         <x-textinput label="赝品时显示文字" name="fake_text" :value="$data->fake_text??''"/>
         <x-textinput label="版权信息" name="copyright" :value="$data->copyright??''"/>
-        <x-textinput label="logo" name="logo" type="file" :value="$data->logo"/>
+        <!-- <x-textinput label="logo" name="logo" type="file" :value="$data->logo"/>
+         -->
+        <div class="form-group row">
+            <label class="col-form-label col-sm-1">logo</label>
+            <div class="col-sm-6">
+                <x-simpleuploader name="logo" single="1" :pictures="$data->logo??''" id="logo"/>
+            </div>
+        </div>
         
-
         <div class="form-group row">
             <label for="" class="col-form-label col-sm-1">幻灯片</label>
             <div class="col-sm-10">
-                <x-jqueryupload id="album" name="swiper[]" :pictures="$data->swiper??[]"/>
+               <!--  <x-jqueryupload id="album" name="swiper[]" :pictures="$data->swiper??[]"/> -->
+                <x-simpleuploader :pictures="$data->swiper??[]" name="swiper" id="swiper" />
             </div>
         </div>
         <x-radio label="显示查询次数" :options="[1 => '是', 0 => '否']" name="enable_show_times" :checked="isset($data->enable_show_times) && $data->enable_show_times == 0? 0 : 1"/>

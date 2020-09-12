@@ -40,11 +40,12 @@
                 <tr>
                     <td>{{ $v->name }}</td>
                     <td>{{ $v->brand }}</td>
-                    <td class="d-flex">
+                    <td class="d-sm-flex align-items-center" style="height: 50px">
 
                         @foreach(array_slice($v->pictures??[], 0, 3) as $item )
-                            <a href="{{asset('storage/'.$item)}}" data-lightbox="box{{$v->id}}"><img class="mx-1 rounded" src="{{asset('storage/'.$item)}}" alt="" width="40" height="40"></a>
+                            <a href="{{asset('storage/'.$item)}}" data-lightbox="box{{$v->id}}"><img class="mx-1 rounded"  src="{{asset('storage/'.$item)}}" alt="" width="40" height="40"></a>
                         @endforeach
+                       
                     </td>
                     <td>{{ Str::limit($v->params, 100) }}</td>
                     <td>{{ $v->company->name??''}}</td>

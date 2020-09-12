@@ -38,7 +38,8 @@ class ProductController extends Controller
      */
     public function store(ProductRequest $request)
     {
-        $datas = $request->input();
+        $datas = $request->except('file');
+        //dd($datas);
         Product::create($datas);
         return redirect()->route('admin.product.index');
     }
@@ -75,8 +76,9 @@ class ProductController extends Controller
      */
     public function update(ProductRequest $request, Product $product)
     {
-       
-        $product->update($request->input());
+        $datas = $request->except('file');
+        $datas['pictures'] = $datas['pictures']??[];
+        $product->update($datas);
         return redirect()->route('admin.product.index');
     }
 

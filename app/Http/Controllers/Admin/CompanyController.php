@@ -39,9 +39,6 @@ class CompanyController extends Controller
     public function store(CompanyRequest $request)
     {
         $datas = $request->all();
-        if($request->file('logo')) {
-            $datas['logo'] = $request->file('logo')->store('uploads');
-        }
         Company::create($datas);
         return redirect()->route('admin.company.index');
     }

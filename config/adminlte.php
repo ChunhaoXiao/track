@@ -483,5 +483,15 @@ return [
                 ]
             ]
         ],
+        'simpleUpload' => [
+            'active' => true,
+            'files' => [
+                [
+                    'type' => 'js',
+                    'asset' => true,
+                    'location' => 'js/simpleUpload.min.js',
+                ]
+            ]
+        ]
     ],
 ];

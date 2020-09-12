@@ -21,7 +21,7 @@
             }
         });
 
-        $(".fa-trash-alt").on('click', e => {
+        $("a.fa-trash-alt").on('click', e => {
             const url = $(e.currentTarget).data('url')
             del(url);
         })

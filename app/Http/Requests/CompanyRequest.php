@@ -25,7 +25,7 @@ class CompanyRequest extends FormRequest
     {
         return [
             'name' => 'required',
-            'logo' => 'nullable|image',
+            //'logo' => 'nullable|image',
         ];
     }
 

@@ -12,12 +12,15 @@ class UploadController extends Controller
         $file = $request->file('file')->store('uploads');
         
         return response()->json([
-            'code' => 0,
-            'msg' => '',
-            'data' => [
-                'src' => asset('storage/'.$file),
-                'savepath' => $file
-            ]
+            'success' => true,
+            'src' => asset('storage/'.$file),
+            'savepath' => $file,
+            // 'code' => 0,
+            // 'msg' => '',
+            // 'data' => [
+            //     'src' => asset('storage/'.$file),
+            //     'savepath' => $file
+            // ]
         ]);
    }
 }
